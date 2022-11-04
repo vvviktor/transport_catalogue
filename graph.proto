@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package transport_catalogue_serialize;
+
+message Edge {
+    uint32 from = 1;
+    uint32 to = 2;
+    double weight = 3;
+}
+
+message IncidenceList {
+    repeated uint32 edge_id_list = 1;
+}
+
+message Graph {
+    repeated Edge edges = 1;
+    repeated IncidenceList incidence_lists = 2;
+}
+
+message Vertexes {
+    uint32 terminal = 1;
+    uint32 on_route = 2;
+}
+
+enum RouteItemType {
+    RIT_UNSPECIFIED = 0;
+    RIT_WAIT = 1;
+    RIT_BUS = 2;
+}
+
+message RouteItem {
+    RouteItemType type = 1;
+    string name = 2;
+    double time = 3;
+    uint32 span_count = 4;
+}
+
+message StrVertexesPair {
+    string stop_name = 1;
+    Vertexes vertexes = 2;
+}
+
+message EdgIDRouteItemPair {
+    uint32 edge_id = 1;
+    RouteItem route_item = 2;
+}
+
+message RouterEssentials {    
+    repeated StrVertexesPair stop_to_vertex_index = 2;
+    repeated EdgIDRouteItemPair edge_to_route_item_index = 3;
+}
