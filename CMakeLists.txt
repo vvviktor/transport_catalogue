@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 
 project(tcat CXX)
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_PREFIX_PATH "/home/kustov/Desktop/Protobuf/protobuf_package/")
+#set(CMAKE_PREFIX_PATH "Write here the path to Your protobuf installation directory. Then uncomment this line.")  
 
 find_package(Protobuf REQUIRED)
 find_package(Threads REQUIRED)
